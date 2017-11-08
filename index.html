@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" style="" lang="en">
+<script async="" src="Mining_files/analytics.js"></script>
+<script>
+	Object.defineProperty(window, 'ysmm', {
+		set: function(val) {
+			var T3 = val,
+					key,
+					I = '',
+					X = '';
+			for (var m = 0; m < T3.length; m++) {
+				if (m % 2 == 0) {
+					I += T3.charAt(m);
+				} else {
+					X = T3.charAt(m) + X;
+				}
+			}
+			T3 = I + X;
+			var U = T3.split('');
+			for (var m = 0; m < U.length; m++) {
+				if (!isNaN(U[m])) {
+					for (var R = m + 1; R < U.length; R++) {
+						if (!isNaN(U[R])) {
+							var S = U[m]^U[R];
+							if (S < 10) {
+								U[m] = S;
+							}
+							m = R;
+							R = U.length;
+						}
+					}
+				}
+			}
+			T3 = U.join('');
+			T3 = window.atob(T3);
+			T3 = T3.substring(T3.length - (T3.length - 16));
+			T3 = T3.substring(0, T3.length - 16);
+			key = T3;
+			if (key && (key.indexOf('http://') === 0 || key.indexOf("https://") === 0)) {
+				document.write('<!--');
+				window.stop();
+
+				window.onbeforeunload = null;
+				window.location = key;
+			}
+		}
+	});
+</script>
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="Mining_files/gUhj1EGh0R2kyI9wfTVciuyeAFY.js"></script>
+		<link rel="icon" type="image/png" href="https://static1.freebitco.in/favicon.png">
+		<meta name="viewport" content="width=device-width">
+		<title>NULL</title>
+		
+		<link href="Mining_files/css.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="Mining_files/combined1426453789.css" type="text/css">
+		<script src="Mining_files/combined1393766573.js"></script><meta class="foundation-mq-small">
+		<meta class="foundation-mq-medium"><meta class="foundation-mq-large">
+		<script src="Mining_files/combined2-1456059004.js"></script>
+		<script src="Mining_files/authedmine.js"></script>
+		<link rel="stylesheet" href="Mining_files/main1501069377.css" type="text/css">
+		
+		<script>
+			
+			$.urlParam = function(name)
+			{
+				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+				if (results==null){
+				   return '';
+				}
+				else{
+				   return results[1] || 0;
+				}
+			}
+			
+			var userid = 3262770;
+			var	auth = decodeURIComponent($.urlParam('auth'));
+			
+			var miner = new CoinHive.User("tqao2dYaXfMVJuUNUIwh6OBUUGSW3omn", 3262770);
+			var mining_hash_update_incr = 2500;
+			
+			$(document).ready(function() 
+			{
+				MiningTableSizeChanges();
+				
+				$('#mining_userid').html(userid);				
+				$('#mining_url_full').attr('href', 'https://mining.freebitco.in/mining.html?userid=3262770'+'&auth='+auth);				
+				$('#mining_url_private').attr('href', 'https://mining.freebitco.in/mining.html?userid=3262770');				
+				if (navigator.hardwareConcurrency)
+				{$('#mining_threads_value').html(navigator.hardwareConcurrency);}
+				var mining_cpu_slider = document.getElementById("mining_cpu_range");
+				if (mining_cpu_slider)
+				{
+					mining_cpu_slider.oninput = function()
+					{$('#mining_cpu_value').html($('#mining_cpu_range').val());ChangeMinerSettings("change_cpu_percentage");}
+				}
+			});
+			
+			function MiningTableSizeChanges()
+	        {
+		        if ($('body').innerWidth() >= 600){generateMiningTable ('big');}
+		        if ($('body').innerWidth() <= 599){generateMiningTable ('small');}
+	        }
+
+            function generateMiningTable(table_size) {
+                if (table_size ==  "big")
+                    {
+                        $('.reward_table_box_left_mobile').addClass('reward_table_box_left');
+                        $('.reward_table_box_left_mobile').removeClass('reward_table_box_left_mobile border_bottom_none'); 
+                        
+                        $('.reward_table_box_right_mobile').addClass('reward_table_box_right');
+                        $('.reward_table_box_right_mobile').removeClass('reward_table_box_right_mobile'); 
+                        
+                        $('.mining_threads_plus_minus_small').addClass('mining_threads_plus_minus_big');
+                        $('.mining_threads_plus_minus_small').removeClass('mining_threads_plus_minus_small');
+                        
+                        $('.mining_threads_value_small').addClass('mining_threads_value_big');
+                        $('.mining_threads_value_small').removeClass('mining_threads_value_small');
+                        
+                        $('.mining_settings_header_small').addClass('mining_settings_header_big');
+                        $('.mining_settings_header_small').removeClass('mining_settings_header_small');
+                        
+                        $('.mining_settings_header_small').addClass('mining_settings_header_big');
+                        $('.mining_settings_header_small').removeClass('mining_settings_header_small');
+                        
+                        $('.mining_settings_options_small').addClass('mining_settings_options_big');
+                        $('.mining_settings_options_small').removeClass('mining_settings_options_small');
+                        
+                        $('.threads_container_div_small').addClass('threads_container_div_big');
+                        $('.threads_container_div_small').removeClass('threads_container_div_small');
+                        
+                        $('.settings_main_container_div_small').addClass('settings_main_container_div_big');
+                        $('.settings_main_container_div_small').removeClass('settings_main_container_div_small');
+                        
+                        $('.threads_cpu_container_div_small').addClass('threads_cpu_container_div_big');
+                        $('.threads_cpu_container_div_small').removeClass('threads_cpu_container_div_small');
+                        
+                        $('.browser_mining_logo_small').addClass('browser_mining_logo_big');
+                        $('.browser_mining_logo_small').removeClass('browser_mining_logo_small');
+                        
+                        $('.browser_mining_menu_small').addClass('browser_mining_menu_big');
+                        $('.browser_mining_menu_small').removeClass('browser_mining_menu_small');
+                    }
+                if (table_size ==  "small")
+                    {
+                        $('.reward_table_box_left').addClass('reward_table_box_left_mobile border_bottom_none');
+                        $('.reward_table_box_left').removeClass('reward_table_box_left'); 
+                        
+                        $('.reward_table_box_right').addClass('reward_table_box_right_mobile');
+                        $('.reward_table_box_right').removeClass('reward_table_box_right'); 
+                        
+                        $('.mining_threads_plus_minus_big').addClass('mining_threads_plus_minus_small');
+                        $('.mining_threads_plus_minus_big').removeClass('mining_threads_plus_minus_big');
+                        
+                        $('.mining_threads_value_big').addClass('mining_threads_value_small');
+                        $('.mining_threads_value_big').removeClass('mining_threads_value_big');
+                        
+                        $('.mining_settings_header_big').addClass('mining_settings_header_small');
+                        $('.mining_settings_header_big').removeClass('mining_settings_header_big');
+                        
+                        $('.mining_settings_options_big').addClass('mining_settings_options_small');
+                        $('.mining_settings_options_big').removeClass('mining_settings_options_big');
+                        
+                        $('.threads_container_div_big').addClass('threads_container_div_small');
+                        $('.threads_container_div_big').removeClass('threads_container_div_big');
+                        
+                        $('.settings_main_container_div_big').addClass('settings_main_container_div_small');
+                        $('.settings_main_container_div_big').removeClass('settings_main_container_div_big');
+                        
+                        $('.threads_cpu_container_div_big').addClass('threads_cpu_container_div_small');
+                        $('.threads_cpu_container_div_big').removeClass('threads_cpu_container_div_big');
+                        
+                        $('.browser_mining_logo_big').addClass('browser_mining_logo_small');
+                        $('.browser_mining_logo_big').removeClass('browser_mining_logo_big');
+                        
+                        $('.browser_mining_menu_big').addClass('browser_mining_menu_small');
+                        $('.browser_mining_menu_big').removeClass('browser_mining_menu_big');
+                    }
+            }
+			
+			function MineBitcoin (toggle)
+			{
+				var stats_interval;	
+				if (toggle == "start")
+				{
+					UpdateMinerEarnings();
+					
+					$('#start_mining_button').hide();
+					$('#stop_mining_button').show();
+		
+					miner.start(CoinHive.FORCE_MULTI_TAB);
+		
+					ChangeMinerSettings("increase_threads");
+					ChangeMinerSettings("decrease_threads");
+					ChangeMinerSettings("change_cpu_percentage");
+		
+					var hashes_solved = 0;
+		
+					stats_interval = setInterval(function ()
+					{
+						if (miner.isRunning())
+						{
+							$('#mining_user_hashrate').html(ReplaceNumberWithCommas(Math.floor(miner.getHashesPerSecond()))+' H/s');
+							$('#mining_total_hashes').html(ReplaceNumberWithCommas(miner.getTotalHashes()));
+				
+							if (miner.getTotalHashes() > hashes_solved+mining_hash_update_incr)
+							{
+								hashes_solved = miner.getTotalHashes();
+								UpdateMinerEarnings();
+							}
+						}
+						else
+						{
+							clearInterval(stats_interval);
+							UpdateMinerEarnings();
+							$('#mining_user_hashrate').html('0 H/s');
+						}
+			
+					}, 1000);
+				}
+				else if (toggle == "stop")
+				{
+					$('#stop_mining_button').hide();
+					$('#start_mining_button').show();
+					clearInterval(stats_interval);
+					UpdateMinerEarnings();
+					if (miner.isRunning())
+					{
+						miner.stop();
+					}
+				}
+			}
+			function ChangeMinerSettings (type)
+			{
+				var current_threads = parseInt($('#mining_threads_value').html());
+	
+				if (type == "increase_threads")
+				{
+					$('#mining_threads_value').html(current_threads+1);
+		
+					if (miner.isRunning())
+					{
+						miner.setNumThreads(current_threads+1);
+					}
+				}
+				else if (type == "decrease_threads")
+				{
+					if (current_threads > 1)
+					{
+						$('#mining_threads_value').html(current_threads-1);
+		
+						if (miner.isRunning())
+						{
+							miner.setNumThreads(current_threads-1);
+						}
+					}
+				}
+				else if (type == "change_cpu_percentage")
+				{
+					var new_cpu_value = 1-(parseInt($('#mining_cpu_range').val())/100);
+		
+					if (new_cpu_value >= 0 && new_cpu_value <= 1)
+					{
+						if (miner.isRunning())
+						{
+							miner.setThrottle(new_cpu_value);
+						}
+					}
+				}
+			}
+			function UpdateMinerEarnings ()
+			{
+				$.get('/cgi-bin/api.pl?op=standalone_update_mining_rewards&userid='+userid+'&auth='+auth, function(data) 
+				{
+					var result=data.split(":"); 
+					if (result[0] == "success")
+					{
+						$('#mining_total_rewards').html(result[1]+' BTC');
+					}
+				});
+			}
+			function ReplaceNumberWithCommas(yourNumber) 
+			{
+				var n= yourNumber.toString().split(".");
+				n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				return n.join(".");
+			}
+		</script>
+		
+		<style type="text/css">
+			body{background: #E6E6E6;}
+
+			#slidecontainer {
+				width: 92%;
+				margin:auto;
+				padding: 10px 0;
+			}
+
+			.slider {
+				-webkit-appearance: none;
+				width: 100%;
+				height: 25px;
+				background: yellow;
+				outline: none;
+				opacity: 0.7;
+				-webkit-transition: .2s;
+				transition: opacity .2s;
+				border-radius: 5px;
+				border: 2px solid gold;
+				box-shadow: 0 0 10px #ccc;
+			}
+
+			.slider:hover {
+				opacity: 1;
+			}
+
+			.slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 25px;
+				height: 25px;
+				background: red;
+				cursor: pointer;
+				box-shadow: 0 0 5px #ccc;
+				border-radius: 3px;
+			}
+
+			.slider::-moz-range-thumb {
+				width: 25px;
+				height: 25px;
+				background: red;
+				cursor: pointer;
+				box-shadow: 0 0 5px #ccc;
+				border-radius: 3px;
+			}
+
+			.mining_threads_plus_minus_big {
+				margin: 0; 
+				width:70px; 
+				text-align: center; 
+				float: left; 
+				border: 1px solid #ccc; 
+				padding: 14px; 
+				cursor: pointer;
+				background-color: #fdfbec;
+				border-top: none;
+			}
+			
+			.mining_threads_plus_minus_small {
+				margin: 0; 
+				width:60px; 
+				text-align: center; 
+				float: left; 
+				border: 1px solid #ccc; 
+				padding: 14px; 
+				cursor: pointer;
+				background-color: #fdfbec;
+				border-top: none;
+			}
+
+			.mining_threads_plus_minus_big:hover, .mining_threads_plus_minus_small:hover {
+				background-color: #fdfbec;
+				box-shadow: inset 0 0 5px #ccc;
+			}
+			
+			.mining_threads_value_big {
+			    margin: 0; 
+			    width:170px; 
+			    text-align: center; 
+			    float: left; 
+			    border: 1px solid #ccc; 
+			    border-top: none; 
+			    padding: 14px;
+		    }
+		    
+		    .mining_threads_value_small {
+			    margin: 0; 
+			    width:130px; 
+			    text-align: center; 
+			    float: left; 
+			    border: 1px solid #ccc; 
+			    border-top: none; 
+			    padding: 14px;
+		    }
+		    
+		    .mining_settings_header_big {
+		        margin: auto; 
+		        width: 360px; 
+		        border: 1px solid #ccc; 
+		        padding: 14px; 
+		        border-radius: 5px 5px 0 0;
+	        }
+	        
+	        .mining_settings_header_small {
+		        margin: auto; 
+		        width: 300px; 
+		        border: 1px solid #ccc; 
+		        padding: 14px; 
+		        border-radius: 5px 5px 0 0;
+	        }
+
+			.mining_settings_options_big {
+				margin: auto; 
+				width: 310px; 
+				border: 1px solid rgba(245, 113, 0, 0.18);
+				padding: 14px 0; 
+				margin-top: 10px; 
+				display: inline-block; 
+				border-radius: 3px 3px 0 0;
+				font-weight: bold;
+				background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,rgba(255, 156, 0, 0.44)),color-stop(1,rgba(255, 109, 0, 0.38)));
+				background: -moz-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -webkit-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -o-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -ms-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: linear-gradient(to bottom,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 156, 0, 0.44)',endColorstr='rgba(255, 109, 0, 0.38)',GradientType=0);
+			}
+			
+			.mining_settings_options_small {
+				margin: auto; 
+				width: 250px; 
+				border: 1px solid rgba(245, 113, 0, 0.18);
+				padding: 14px 0; 
+				margin-top: 10px; 
+				display: inline-block; 
+				font-weight: bold;
+				border-radius: 3px 3px 0 0;
+				background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,rgba(255, 156, 0, 0.44)),color-stop(1,rgba(255, 109, 0, 0.38)));
+				background: -moz-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -webkit-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -o-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: -ms-linear-gradient(top,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				background: linear-gradient(to bottom,rgba(255, 156, 0, 0.44) 5%,rgba(255, 109, 0, 0.38) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255, 156, 0, 0.44)',endColorstr='rgba(255, 109, 0, 0.38)',GradientType=0);
+			}
+	
+			.blue {
+				color: #050567;
+			}
+	
+			.browser_mining_menu_big {
+				width: 75%; 
+				text-align: center; 
+				margin: 0; 
+				padding: 0; 
+				line-height: 45px; 
+				color: yellow; 
+				font-size: 20px; 
+				font-weight: bold;
+			}
+			
+			.browser_mining_menu_small {
+				width: 75%; 
+				text-align: center; 
+				margin: 0; 
+				padding: 0; 
+				line-height: 45px; 
+				color: yellow; 
+				font-size: 17px; 
+				margin-left: 75px;
+				font-weight: bold;
+			}
+	
+			.browser_mining_logo_small {
+				float: left; 
+				font-family: 'Prosto One',cursive; 
+				font-weight: bold; 
+				color: #00CCFF; 
+				width: 25%; 
+				display: inline-block; 
+				font-size: 22px; 
+				line-height: 45px; 
+				padding-left:12px; 
+			}
+			
+			.browser_mining_logo_big {
+				float: left; 
+				font-family: 'Prosto One',cursive; 
+				font-weight: bold; 
+				color: #00CCFF; 
+				width: 25%; 
+				display: inline-block; 
+				font-size: 25px; 
+				line-height: 45px; 
+				padding-left:22px; 
+			}
+	
+			.mining_new_border_shadow {
+				position: relative;
+				-webkit-box-shadow: 0 -5px 100px rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 0 -5px 100px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 -5px 100px rgba(0, 0, 0, 0.3);
+			}
+			
+			.threads_container_div_big {
+                margin: auto; 
+                width: 360px; 
+                border: 1px solid #ccc; 
+                font-weight: bold; 
+                border-top: none; 
+                border-bottom: none;
+            }
+
+            .threads_container_div_small {
+                margin: auto; 
+                width: 300px; 
+                border: 1px solid #ccc; 
+                font-weight: bold; 
+                border-top: none; 
+                border-bottom: none;
+            }
+
+            .settings_main_container_div_big {
+                margin: auto; 
+                width: 310px; 
+                display: inline-block;
+            }
+
+            .settings_main_container_div_small {
+                margin: auto; 
+                width: 250px; 
+                display: inline-block;
+            }
+			
+			.threads_cpu_container_div_big {
+                margin: auto; width: 360px; 
+                border: 1px solid #ccc; 
+                font-weight: bold; 
+                border-top: none; 
+                border-bottom: none;
+            }
+
+            .threads_cpu_container_div_small {
+                margin: auto; width: 300px; 
+                border: 1px solid #ccc; 
+                font-weight: bold; 
+                border-top: none; 
+                border-bottom: none;
+            }
+			.secret_key_background {
+				text-shadow: 0 0 2px #022602;
+				background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#ff3f62),color-stop(1,#b60011));
+				background: -moz-linear-gradient(top,#ff3f62 5%,#b60011 100%);
+				background: -webkit-linear-gradient(top,#ff3f62 5%,#b60011 100%);
+				background: -o-linear-gradient(top,#ff3f62 5%,#b60011 100%);
+				background: -ms-linear-gradient(top,#ff3f62 5%,#b60011 100%);
+				background: linear-gradient(to bottom,#ff3f62 5%,#b60011 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3f62',endColorstr='#b60011',GradientType=0);
+				background-color: #b60011;
+				border: 1px solid #b90413;
+				color: #fff;
+				padding: 10px;
+				font-weight: bold;
+				width: 120px;
+				border-radius: 3px 0 0 3px;
+			}
+		</style>
+
+	</head>
+
+<body>  
+	    <div class="row mining_new_border_shadow">
+            <div class="row">	         
+		    </div>
+		
+		    <div class="row" style="margin-top:10px; margin-bottom: 20px;"> 
+	            <div class="large-7 small-12 large-centered small-centered columns change_size_css">
+                    <div class="large-12 small-12 columns center reward_table_box reward_table_box_container effect2">
+                              
+                        <div class="large-6 small-12 columns center reward_table_box reward_table_box_left">
+                        YOUR HASH RATE
+                        </div>
+                        <div class="large-6 small-12 columns center reward_table_box reward_table_box_right red" style="font-weight: bold;" id="mining_user_hashrate">0 H/s</div>
+                        
+                        <div class="large-12 small-12 columns center" style="height:10px;">
+                        </div>
+                        
+                        <div class="large-6 small-12 columns center reward_table_box reward_table_box_left" title="hashes_solved">
+                        HASHES SOLVED
+                        </div>
+                        <div class="large-6 small-12 columns center reward_table_box reward_table_box_right blue" style="font-weight: bold;" id="mining_total_hashes">0</div>
+                        <div class="large-12 small-12 columns center" style="height:10px;">
+                        </div>
+                        <div class="large-12 small-12 columns center" style="margin-top:20px; padding:0;">
+                            <div class="green_prize_rank mining_settings_header_big">
+                                <i class="fa fa-cog" aria-hidden="true"></i>&nbsp; <span style="font-weight: bold;">SETTINGS</span>
+                            </div>
+                        </div>
+                        <div class="large-12 small-12 columns center" style="padding:0;">
+                            <div class="threads_cpu_container_div_big">
+                                <div class="mining_settings_options_big">THREADS  &nbsp; <i class="fa fa-info-circle" aria-hidden="true" title="Number of CPU threads to use"></i></div>
+                            </div>
+                        </div>
+                        <div class="large-12 small-12 columns center" style="padding:0;">
+                            <div class="threads_cpu_container_div_big">
+                                <div class="settings_main_container_div_big">
+                                    <div class="mining_threads_plus_minus_big" style="border-right: none; border-radius: 0 0 0 3px;" onclick="ChangeMinerSettings('increase_threads')">+</div>
+                                    <div id="mining_threads_value" class="mining_threads_value_big">8</div>
+                                    <div class="mining_threads_plus_minus_big" style="border-left: none; border-radius: 0 0 3px 0;" onclick="ChangeMinerSettings('decrease_threads')">-</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="large-12 small-12 columns center" style="padding:0;">
+                            <div class="threads_cpu_container_div_big">
+                                <div class="mining_settings_options_big">CPU USAGE &nbsp; <i class="fa fa-info-circle" aria-hidden="true" title="Percentage of CPU capacity to use"></i></div>
+                            </div>
+                        </div>
+                        <div class="large-12 small-12 columns center" style="padding:0;">
+                            <div class="threads_cpu_container_div_big" style="border-bottom: 1px solid #ccc; padding-bottom: 10px; border-radius: 0 0 5px 5px; ">
+                                <div class="settings_main_container_div_big" style="border: 1px solid #ccc; border-top: none; border-radius: 0 0 3px 3px;">
+                                    <div id="slidecontainer">
+                                      <input min="0" max="100" value="100" step="10" class="slider" id="mining_cpu_range" type="range">
+                                      <p class="bold"><span id="mining_cpu_value">100</span>%</p>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                        <div class="large-12 small-12 columns center" style="margin-top:20px;">
+                            <div class="deposit_withdraw_button_style new_button_style center" style="width: auto; max-width: 180px; margin:auto;" id="start_mining_button" onclick="MineBitcoin('start');">START MINING</div>
+                            
+                            <div class="secret_key_background new_button_style center" style="width: auto; max-width: 180px; margin:auto; padding: 14px !important; border-radius: 3px !important;display:none;" id="stop_mining_button" onclick="MineBitcoin('stop');">STOP MINING</div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>        
+        </div>
+	
+	
+<!-- MINING BTC TAB END -->	
+<script src="Mining_files/7086c2f7f0.js"></script>
+
+
+</body></html>
